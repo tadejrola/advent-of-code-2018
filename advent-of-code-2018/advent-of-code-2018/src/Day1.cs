@@ -7,7 +7,7 @@ namespace advent_of_code_2018.src
     {
         public int getFrequency()
         {
-            var lines = File.ReadAllLines("../../src/inputs/input.txt");
+            var lines = File.ReadAllLines("../../src/inputs/day1/input.txt");
             int frequency = 0;
             for (var i = 0; i < lines.Length; i += 1)
             {
@@ -19,7 +19,7 @@ namespace advent_of_code_2018.src
 
         public int getDoubledFrequency()
         {
-            var lines = File.ReadAllLines("../../src/inputs/input.txt");
+            var lines = File.ReadAllLines("../../src/inputs/day1/input.txt");
             int frequency = 0;
             Dictionary<int, int> tempFrequencies = new Dictionary<int, int>();
             tempFrequencies[frequency] = frequency;

@@ -14,6 +14,11 @@ namespace advent_of_code_2018
             Console.WriteLine(frequency);
             Console.WriteLine("RESULT DAY 1 part2:");
             Console.WriteLine(repeatedFrequency);
+
+            Day2 day2 = new Day2();
+            var checksum = day2.getFrequency();
+            Console.WriteLine("RESULT DAY 2:");
+            Console.WriteLine(checksum);
             Console.ReadLine();
         }
     }
