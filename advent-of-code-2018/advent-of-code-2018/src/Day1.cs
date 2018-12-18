@@ -21,19 +21,19 @@ namespace advent_of_code_2018.src
         {
             var lines = File.ReadAllLines("../../src/inputs/input.txt");
             int frequency = 0;
-            List<int> tempFrequencies = new List<int>();
-            tempFrequencies.Add(frequency);
+            Dictionary<int, int> tempFrequencies = new Dictionary<int, int>();
+            tempFrequencies[frequency] = frequency;
             int i = 0;
 
             while (i < lines.Length)
             {
                 var line = int.Parse(lines[i]);
                 frequency += line;
-                tempFrequencies.Add(frequency);
-                if (tempFrequencies.FindAll(x => x == frequency).Count == 2)
-                {
+                if (tempFrequencies.ContainsKey(frequency))
                     return frequency;
-                }
+
+                tempFrequencies[frequency] = frequency;
+
                 i++;
                 if (i == lines.Length)
                 {
