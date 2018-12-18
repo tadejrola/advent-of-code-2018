@@ -1,4 +1,4 @@
-﻿using advent_of_code_2018.src.day1;
+﻿using advent_of_code_2018.src;
 using System;
 
 namespace advent_of_code_2018
@@ -9,8 +9,11 @@ namespace advent_of_code_2018
         {
             Day1 day1 = new Day1();
             var frequency = day1.getFrequency();
-            Console.WriteLine("RESULT DAY 1:");
+            var repeatedFrequency = day1.getDoubledFrequency();
+            Console.WriteLine("RESULT DAY 1 part1:");
             Console.WriteLine(frequency);
+            Console.WriteLine("RESULT DAY 1 part2:");
+            Console.WriteLine(repeatedFrequency);
             Console.ReadLine();
         }
     }
