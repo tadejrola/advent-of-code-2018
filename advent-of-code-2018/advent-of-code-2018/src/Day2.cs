@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace advent_of_code_2018.src
 {
     internal class Day2
     {
-        public int getFrequency()
+        public int getChecksum()
         {
             var lines = File.ReadAllLines("../../src/inputs/day2/input.txt");
 
@@ -39,6 +40,40 @@ namespace advent_of_code_2018.src
             }
 
             return totalDouble * totalTriple;
+        }
+
+        public string getCommonChars()
+        {
+            var lines = File.ReadAllLines("../../src/inputs/day2/input.txt");
+            Dictionary<string[], int> wordsAndTheirDifferences = new Dictionary<string[], int>();
+            for (int i = 0; i < lines.Length; i++)
+            {
+                for (int j = 1; j < lines.Length; j++)
+                {
+                    if (i == j)
+                        break;
+                    int numberOfDifferences = 0;
+                    for (int k = 0; k < lines[i].Length; k++)
+                    {
+                        if (lines[i][k] != lines[j][k])
+                            numberOfDifferences++;
+                    }
+                    string[] vs = new string[] { lines[i], lines[j] };
+                    wordsAndTheirDifferences.Add(vs, numberOfDifferences);
+                }
+            }
+
+            var keys = wordsAndTheirDifferences.OrderBy(kvp => kvp.Value).First().Key;
+            string final = "";
+            for (int i = 0; i < keys[0].Length; i++)
+            {
+                if (keys[0][i].ToString() == keys[1][i].ToString())
+                {
+                    final += keys[0][i];
+                }
+            }
+
+            return final;
         }
     }
 }
